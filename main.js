@@ -577,13 +577,13 @@ async function main() {
 					session.whipOutput = "https://g.webrtc.live-video.net:4443/v2/offer";
 					query("#publishOutToken input[type='password']").placeholder = "Twitch stream token here";
 				} else {
-					session.whipOutput = decodeURIComponent(session.whipOutput);
+					session.whipOutput = `https://ome.erikpsw.works:3334/app/${decodeURIComponent(session.whipOutput)}?direction=whip`;
 				}
 			} catch (e) {
 				errorlog(e);
 			}
 		} else {
-			getById("publishOutURL").classList.remove("hidden");
+			getById("publishOutURL").classList.remove("hidden");	
 		}
 
 		if (urlParams.has("whippushtoken") || urlParams.has("whipouttoken") || urlParams.has("pushwhiptoken")) {
@@ -599,6 +599,8 @@ async function main() {
 		}
 		
 		getById("startPublishingButton").classList.remove("hidden");
+		session.preferCurrentTab = true;
+		getById("startPublishingButton").click();
 	}
 	
 	if (urlParams.has("whipoutkeyframe") ){
@@ -1800,7 +1802,7 @@ async function main() {
 
 	if (urlParams.has("publish")) {
 		session.publish = true;
-		getById("publishSettings").style.display = "block";
+		// getById("publishSettings").style.display = "block";
 		
 		if (session.recordLocal !== false){
 			getById("startRecordingButton").classList.remove("hidden");
