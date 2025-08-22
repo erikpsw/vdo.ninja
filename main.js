@@ -577,7 +577,7 @@ async function main() {
 					session.whipOutput = "https://g.webrtc.live-video.net:4443/v2/offer";
 					query("#publishOutToken input[type='password']").placeholder = "Twitch stream token here";
 				} else {
-					session.whipOutput = `https://ome.erikpsw.works:3334/app/${decodeURIComponent(session.whipOutput)}?direction=whip`;
+					session.whipOutput = `https://podcast.erikpsw.works:3334/app/${decodeURIComponent(session.whipOutput)}?direction=whip`;
 				}
 			} catch (e) {
 				errorlog(e);
